@@ -1,27 +1,30 @@
 name := "sangria-marshalling-testkit"
 organization := "org.sangria-graphql"
-version := "1.0.3-SNAPSHOT"
+version := "1.1.0-SNAPSHOT"
 
 description := "Sangria Marshalling API TestKit"
 homepage := Some(url("http://sangria-graphql.org"))
 licenses := Seq("Apache License, ASL Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-scalaVersion := "2.12.8"
-crossScalaVersions := Seq("2.11.11", "2.12.8")
+scalaVersion := "2.13.0-RC1"
+crossScalaVersions := Seq("2.11.11", "2.12.8", "2.13.0-RC1")
 
 scalacOptions ++= Seq("-deprecation", "-feature")
 
 scalacOptions ++= {
-  if (scalaVersion.value startsWith "2.12")
+  if ((scalaVersion.value startsWith "2.12") || (scalaVersion.value startsWith "2.13"))
     Seq.empty
   else
     Seq("-target:jvm-1.7")
 }
 
-libraryDependencies ++= Seq(
-  "org.sangria-graphql" %% "sangria-marshalling-api" % "1.1.0-SNAPSHOT",
-  "org.scalatest" %% "scalatest" % "3.0.5"
-)
+libraryDependencies ++= Seq("org.sangria-graphql" %% "sangria-marshalling-api" % "1.1.0-SNAPSHOT")
+libraryDependencies ++= {
+  if (scalaVersion.value startsWith "2.13")
+    Seq("org.scalatest" %% "scalatest" % "3.0.8-RC2")
+  else 
+    Seq("org.scalatest" %% "scalatest" % "3.0.5")
+}
 
 git.remoteRepo := "git@github.com:sangria-graphql/sangria-marshalling-testkit.git"
 
