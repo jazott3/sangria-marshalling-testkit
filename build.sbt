@@ -1,13 +1,13 @@
 name := "sangria-marshalling-testkit"
 organization := "org.sangria-graphql"
-version := "1.0.2-SNAPSHOT"
+version := "1.0.3-SNAPSHOT"
 
 description := "Sangria Marshalling API TestKit"
 homepage := Some(url("http://sangria-graphql.org"))
 licenses := Seq("Apache License, ASL Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-scalaVersion := "2.12.3"
-crossScalaVersions := Seq("2.11.11", "2.12.3")
+scalaVersion := "2.12.8"
+crossScalaVersions := Seq("2.11.11", "2.12.8")
 
 scalacOptions ++= Seq("-deprecation", "-feature")
 
@@ -19,8 +19,8 @@ scalacOptions ++= {
 }
 
 libraryDependencies ++= Seq(
-  "org.sangria-graphql" %% "sangria-marshalling-api" % "1.0.0",
-  "org.scalatest" %% "scalatest" % "3.0.4"
+  "org.sangria-graphql" %% "sangria-marshalling-api" % "1.1.0-SNAPSHOT",
+  "org.scalatest" %% "scalatest" % "3.0.5"
 )
 
 git.remoteRepo := "git@github.com:sangria-graphql/sangria-marshalling-testkit.git"
